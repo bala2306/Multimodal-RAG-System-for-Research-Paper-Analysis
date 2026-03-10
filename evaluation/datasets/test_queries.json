@@ -1,0 +1,148 @@
+{
+    "metadata": {
+        "name": "Research Papers Test Dataset - Jaccard Optimized",
+        "description": "Questions rewritten with output constraints (e.g., 'Answer in 5 words') to make Jaccard Similarity evaluation viable.",
+        "version": "5.0-jaccard-optimized",
+        "created": "2025-12-16",
+        "total_questions": 10,
+        "papers_covered": [
+            "Word2Vec",
+            "DistilBERT",
+            "ELMo",
+            "RoBERTa",
+            "REALM"
+        ]
+    },
+    "questions": [
+        {
+            "id": "word2vec_1",
+            "question": "According to the abstract, exactly how long does it take to learn high-quality word vectors from a 1.6 billion words data set? Answer with the time phrase only.",
+            "expected_answer": "less than a day",
+            "keywords": [
+                "less",
+                "than",
+                "a",
+                "day"
+            ],
+            "difficulty": "easy",
+            "category": "word2vec",
+            "source_paper": "Word2Vec: Efficient Estimation of Word Representations"
+        },
+        {
+            "id": "word2vec_2",
+            "question": "Which specific architecture does the text state performs 'much better' on the semantic part of the test? Answer with the model name only.",
+            "expected_answer": "Skip-gram",
+            "keywords": [
+                "Skip-gram"
+            ],
+            "difficulty": "medium",
+            "category": "word2vec",
+            "source_paper": "Word2Vec: Efficient Estimation of Word Representations"
+        },
+        {
+            "id": "distilbert_1",
+            "question": "State the percentage size reduction and percentage performance retention of DistilBERT according to the abstract. Format: X% reduction, Y% retention.",
+            "expected_answer": "40% reduction, 97% retention",
+            "keywords": [
+                "40%",
+                "97%",
+                "reduction",
+                "retention"
+            ],
+            "difficulty": "easy",
+            "category": "distilbert",
+            "source_paper": "DistilBERT"
+        },
+        {
+            "id": "distilbert_2",
+            "question": "List the three components of the 'triple loss' used to train DistilBERT. Answer as a comma-separated list.",
+            "expected_answer": "language modeling, distillation, cosine-distance",
+            "keywords": [
+                "language",
+                "modeling",
+                "distillation",
+                "cosine-distance"
+            ],
+            "difficulty": "medium",
+            "category": "distilbert",
+            "source_paper": "DistilBERT"
+        },
+        {
+            "id": "elmo_1",
+            "question": "What does the acronym 'ELMo' stand for? Answer with the full name only.",
+            "expected_answer": "Embeddings from Language Models",
+            "keywords": [
+                "Embeddings",
+                "from",
+                "Language",
+                "Models"
+            ],
+            "difficulty": "easy",
+            "category": "elmo",
+            "source_paper": "ELMo"
+        },
+        {
+            "id": "elmo_2",
+            "question": "What specific linguistic information is best captured by lower-level LSTM states in ELMo? Answer in one word.",
+            "expected_answer": "syntax",
+            "keywords": [
+                "syntax"
+            ],
+            "difficulty": "medium",
+            "category": "elmo",
+            "source_paper": "ELMo"
+        },
+        {
+            "id": "roberta_1",
+            "question": "Which training objective was removed from the original BERT procedure to create RoBERTa? Answer with the name only.",
+            "expected_answer": "next sentence prediction",
+            "keywords": [
+                "next",
+                "sentence",
+                "prediction",
+                "NSP"
+            ],
+            "difficulty": "medium",
+            "category": "roberta",
+            "source_paper": "RoBERTa"
+        },
+        {
+            "id": "roberta_2",
+            "question": "What is the name of the new dataset collected by the authors for the RoBERTa study? Answer with the dataset name only.",
+            "expected_answer": "CC-NEWS",
+            "keywords": [
+                "CC-NEWS"
+            ],
+            "difficulty": "easy",
+            "category": "roberta",
+            "source_paper": "RoBERTa"
+        },
+        {
+            "id": "realm_1",
+            "question": "What task is used to 'warm-start' the retrieval and encoder systems in REALM? Answer with the task name only.",
+            "expected_answer": "Inverse Cloze Task",
+            "keywords": [
+                "Inverse",
+                "Cloze",
+                "Task",
+                "ICT"
+            ],
+            "difficulty": "medium",
+            "category": "realm",
+            "source_paper": "REALM"
+        },
+        {
+            "id": "realm_2",
+            "question": "What specific masking strategy does REALM use for world knowledge? Answer with the strategy name only.",
+            "expected_answer": "salient span masking",
+            "keywords": [
+                "salient",
+                "span",
+                "masking"
+            ],
+            "difficulty": "medium",
+            "category": "realm",
+            "source_paper": "REALM"
+        }
+    ]
+}

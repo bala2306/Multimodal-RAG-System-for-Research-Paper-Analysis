@@ -1,0 +1,172 @@
+{
+  "metadata": {
+    "timestamp": "2025-12-16T01:48:15.714222",
+    "num_questions": 3,
+    "methods": [
+      "no_rag",
+      "basic_rag",
+      "advanced_rag"
+    ],
+    "top_k": 5
+  },
+  "summary": {
+    "no_rag": {
+      "num_queries": 3,
+      "num_successful": 3,
+      "success_rate": 1.0,
+      "mean_accuracy": 0.12188155136268343,
+      "mean_keyword_overlap": 0.4666666666666666,
+      "mean_latency_ms": 519.0502802530924,
+      "mean_answer_relevancy": 0.8333333333333334,
+      "calibration_error": 0.8666666666666667
+    },
+    "basic_rag": {
+      "num_queries": 3,
+      "num_successful": 3,
+      "success_rate": 1.0,
+      "mean_accuracy": 0.09954751131221719,
+      "mean_keyword_overlap": 0.5333333333333333,
+      "mean_latency_ms": 2448.5090573628745,
+      "mean_faithfulness": 0.9333333333333332,
+      "mean_answer_relevancy": 0.9333333333333332
+    },
+    "advanced_rag": {
+      "num_queries": 3,
+      "num_successful": 3,
+      "success_rate": 1.0,
+      "mean_accuracy": 0.07707117128307044,
+      "mean_keyword_overlap": 0.46666666666666673,
+      "mean_latency_ms": 6512.802918752034,
+      "mean_faithfulness": 0.0,
+      "mean_answer_relevancy": 0.7000000000000001
+    }
+  },
+  "detailed_results": [
+    {
+      "question_id": "rag_1",
+      "question": "What are the two main components that RAG combines according to the original paper?",
+      "expected_answer": "RAG combines a pre-trained seq2seq model (generator) with a dense vector index of Wikipedia (retriever), using the retriever to find relevant documents that condition the generator.",
+      "method": "no_rag",
+      "generated_answer": "According to the original paper, RAG (Retrieval-Augmented Generator) combines two main components: \n\n1. A retriever, which is an information retrieval model that fetches relevant documents or passages from a large corpus.\n2. A generator, which is a text generation model that uses the retrieved information to generate a response.",
+      "accuracy": 0.16981132075471697,
+      "faithfulness": null,
+      "answer_relevancy": 1.0,
+      "keyword_overlap": 0.4,
+      "confidence": 0.9,
+      "latency_ms": 447.39794731140137,
+      "error": null
+    },
+    {
+      "question_id": "rag_2",
+      "question": "What is the difference between RAG-Sequence and RAG-Token models?",
+      "expected_answer": "RAG-Sequence uses the same retrieved document to generate the entire output sequence, while RAG-Token can use different documents for each output token, allowing more flexible generation.",
+      "method": "no_rag",
+      "generated_answer": "RAG-Sequence and RAG-Token models are both part of the Retrieval-Augmented Generator (RAG) family, which are advanced models used for generating text based on a given prompt, enhanced with the capability to retrieve relevant information from a large dataset or knowledge base to inform their responses. The primary difference between RAG-Sequence and RAG-Token models lies in their approach to generating text and integrating retrieved information:\n\n1. **RAG-Sequence Model**: This model generates text sequences as a whole, considering the entire sequence of text when making predictions. It retrieves relevant documents or information and then uses this information to generate a complete sequence of text (like a sentence or paragraph) at once. The model optimizes the sequence as a unit.\n\n2. **RAG-Token Model**: In contrast, the RAG-Token model generates text one token at a time. For each token in the output sequence, it considers the retrieved documents or information. This allows for more granular control over the generation process, as the model can adapt its choice of the next token based on the context and the retrieved information.\n\nIn summary, the main difference is that RAG-Sequence generates sequences as a whole, optimizing the entire sequence at once, while RAG-Token generates text one token at a time, adapting to the context and retrieved information at each step.",
+      "accuracy": 0.13333333333333333,
+      "faithfulness": null,
+      "answer_relevancy": 0.5,
+      "keyword_overlap": 1.0,
+      "confidence": 0.9,
+      "latency_ms": 885.869026184082,
+      "error": null
+    },
+    {
+      "question_id": "rag_3",
+      "question": "What retrieval model does the original RAG paper use?",
+      "expected_answer": "RAG uses DPR (Dense Passage Retrieval) with a BERT-based bi-encoder that encodes queries and documents into dense vectors for maximum inner product search.",
+      "method": "no_rag",
+      "generated_answer": "The original RAG (Retrieve, Augment, Generate) paper uses the BM25 retrieval model.",
+      "accuracy": 0.0625,
+      "faithfulness": null,
+      "answer_relevancy": 1.0,
+      "keyword_overlap": 0.0,
+      "confidence": 0.8,
+      "latency_ms": 223.88386726379395,
+      "error": null
+    },
+    {
+      "question_id": "rag_1",
+      "question": "What are the two main components that RAG combines according to the original paper?",
+      "expected_answer": "RAG combines a pre-trained seq2seq model (generator) with a dense vector index of Wikipedia (retriever), using the retriever to find relevant documents that condition the generator.",
+      "method": "basic_rag",
+      "generated_answer": "According to the original paper, RAG models leverage two main components:\n\n1. **Retriever**: $p_{\\eta}(z|x)$ with parameters $\\eta$ that returns (top-K truncated) distributions over text passages given a query $x$.\n2. **Generator**: $p_{\\theta}(y_i|x, z, y_{1:i-1})$ parametrized.\n\nThese components are illustrated in **Figure 1** [Source 2, Page 2]. \n\nThe retriever is used to retrieve text documents $z$ and the generator uses them as additional context when generating the target sequence $y$. \n\nThe code for RAG models has been open-sourced as part of the HuggingFace Transformers Library, which can be found at https://github.com/huggingface/transformers/blob/master/examples/rag/ [Source 1, Source 2]. \n\nAn interactive demo of RAG models can also be found at https://huggingface.co/rag/ [Source 1, Source 2].",
+      "accuracy": 0.08823529411764706,
+      "faithfulness": 0.8,
+      "answer_relevancy": 1.0,
+      "keyword_overlap": 0.4,
+      "confidence": null,
+      "latency_ms": 3355.671167373657,
+      "error": null
+    },
+    {
+      "question_id": "rag_2",
+      "question": "What is the difference between RAG-Sequence and RAG-Token models?",
+      "expected_answer": "RAG-Sequence uses the same retrieved document to generate the entire output sequence, while RAG-Token can use different documents for each output token, allowing more flexible generation.",
+      "method": "basic_rag",
+      "generated_answer": "The difference between RAG-Sequence and RAG-Token models lies in how they handle the generation of output sequences and the integration of retrieved documents.\n\nRAG-Sequence treats the retrieved document as a single latent variable, marginalizing it to get the sequence-to-sequence probability $p(y|x)$ via a top-K approximation. This means that it retrieves the top K documents and uses them to generate the output sequence probability [Source 1].\n\nOn the other hand, RAG-Token allows the generator to draw a different latent document for each target token and marginalize accordingly. This enables the generator to choose content from several documents when producing an answer. The top K documents are retrieved, and then the generator produces a distribution for the next output token for each document, before marginalizing and repeating the process with the following output token [Source 1].\n\nThe decoding process also differs between the two models. RAG-Token can be decoded using a standard beam decoder, whereas RAG-Sequence requires a different approach to approximate $\\arg \\max_y p(y|x)$ [Source 5].\n\nAccording to Figure 3 in [Source 5, Page 8], retrieving more documents at test time improves Open-domain QA results for RAG-Sequence, but performance peaks for RAG-Token at 10 retrieved documents. This suggests that RAG-Token is more sensitive to the number of retrieved documents.\n\nIn summary, the key differences between RAG-Sequence and RAG-Token models are:\n\n* How they handle the retrieved documents: RAG-Sequence uses a single latent variable, while RAG-Token uses multiple documents for each target token.\n* Decoding process: RAG-Token uses a standard beam decoder, while RAG-Sequence requires a different approach.\n\nThese differences are reflected in their performance on Open-domain QA tasks, as shown in Figure 3 [Source 3, Page 8]. \n\nThe main differences are summarized from [Source 1] and [Source 5].",
+      "accuracy": 0.10256410256410256,
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.8,
+      "keyword_overlap": 1.0,
+      "confidence": null,
+      "latency_ms": 2380.1777362823486,
+      "error": null
+    },
+    {
+      "question_id": "rag_3",
+      "question": "What retrieval model does the original RAG paper use?",
+      "expected_answer": "RAG uses DPR (Dense Passage Retrieval) with a BERT-based bi-encoder that encodes queries and documents into dense vectors for maximum inner product search.",
+      "method": "basic_rag",
+      "generated_answer": "The original RAG paper uses DPR (Dense Passage Retriever) as the retrieval model. \n\nAccording to [Source 2, Page 2], the RAG models leverage two components: (i) a retriever $p_\\eta(z|x)$ with parameters $\\eta$ that returns (top-K truncated) distributions over text passages given a query $x$ and (ii) a generator $p_\\theta(yi|x, z, y_{1:i-1})$ parametrized.\n\nDPR is specifically mentioned in [Source 1, Page 18] as the model used for the document encoder, with 110M parameters each. \n\nAdditionally, [Source 3, Page 8] and [Source 4, Page 19] provide more context about the performance and characteristics of DPR in the context of RAG models.\n\nThe DPR model is a key component of the RAG architecture, responsible for retrieving relevant documents for the task. \n\nFor more information on DPR and its application in RAG models, you can refer to the original paper.",
+      "accuracy": 0.10784313725490197,
+      "faithfulness": 1.0,
+      "answer_relevancy": 1.0,
+      "keyword_overlap": 0.2,
+      "confidence": null,
+      "latency_ms": 1609.6782684326172,
+      "error": null
+    },
+    {
+      "question_id": "rag_1",
+      "question": "What are the two main components that RAG combines according to the original paper?",
+      "expected_answer": "RAG combines a pre-trained seq2seq model (generator) with a dense vector index of Wikipedia (retriever), using the retriever to find relevant documents that condition the generator.",
+      "method": "advanced_rag",
+      "generated_answer": "The question asks about the two main components that RAG combines according to the original paper. However, I couldn't find any information about RAG or its components in the provided document context.\n\nBased on general knowledge, RAG stands for Retrieval-Augmented Generator, which is a model that combines two main components: \n\n1. **Retriever**: This component is responsible for retrieving relevant information from a knowledge base or database.\n2. **Generator**: This component is responsible for generating text based on the retrieved information.\n\nThese two components work together to enable the model to generate more accurate and informative text [Based on general knowledge]. \n\nIf you could provide more context or clarify which RAG you are referring to, I may be able to give a more specific answer.",
+      "accuracy": 0.09278350515463918,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
+      "keyword_overlap": 0.4,
+      "confidence": null,
+      "latency_ms": 7270.709037780762,
+      "error": null
+    },
+    {
+      "question_id": "rag_2",
+      "question": "What is the difference between RAG-Sequence and RAG-Token models?",
+      "expected_answer": "RAG-Sequence uses the same retrieved document to generate the entire output sequence, while RAG-Token can use different documents for each output token, allowing more flexible generation.",
+      "method": "advanced_rag",
+      "generated_answer": "The provided context doesn't mention RAG-Sequence and RAG-Token models. However, I can provide general information about these models.\n\nRAG (Retrieve, Augment, Generate) models are a type of natural language processing (NLP) model that combines retrieval and generation capabilities. RAG-Sequence and RAG-Token are specific variants of RAG models.\n\nBased on general knowledge, RAG-Sequence and RAG-Token differ in their approach to generating text. RAG-Sequence generates text at the sequence level, whereas RAG-Token generates text at the token level.\n\nTo provide a more detailed answer, I would need more context or information about the specific RAG models being referred to. However, I couldn't find any specific information about RAG-Sequence and RAG-Token models in the provided document context.\n\nIf you have any further questions or need clarification, please let me know.",
+      "accuracy": 0.07216494845360824,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.8,
+      "keyword_overlap": 0.8,
+      "confidence": null,
+      "latency_ms": 5472.332954406738,
+      "error": null
+    },
+    {
+      "question_id": "rag_3",
+      "question": "What retrieval model does the original RAG paper use?",
+      "expected_answer": "RAG uses DPR (Dense Passage Retrieval) with a BERT-based bi-encoder that encodes queries and documents into dense vectors for maximum inner product search.",
+      "method": "advanced_rag",
+      "generated_answer": "The original RAG paper, which stands for Retrieval-Augmented Generator, focuses on improving text generation tasks by incorporating a retrieval mechanism. This mechanism allows the model to fetch relevant information from a large corpus of text and use it to generate more accurate and informative responses.\n\nTo identify the retrieval model used in the original RAG paper, let's consider common retrieval models and techniques that are typically employed in such architectures. The most straightforward approach to finding this information would be to look directly in the provided document context for mentions of \"RAG\" or specific retrieval models.\n\nHowever, based on general knowledge, the RAG model commonly utilizes a dense passage retriever (DPR) as its retrieval component. DPR is a neural network-based retrieval model designed to efficiently find passages that are relevant to a given question or query. It works by encoding both questions and passages into dense vector representations and computing the similarity between them.\n\nGiven that [Source 7, Page 5] and [Source 8, Page 6] discuss DPR in the context of passage retrieval and provide detailed results on its performance across various datasets, it is reasonable to infer that DPR could be the retrieval model used in the original RAG paper.\n\nThe Dense Passage Retriever (DPR) achieved a top-1 accuracy of 44.9% and top-5 accuracy of 66.8% on the Natural Questions development set when trained on gold passages. For DPR trained with distant supervision (Dist. Sup.), the top-1 accuracy was 43.9% and top-5 accuracy was 65.3% [Source 7, Page 5].\n\nBased on this information and general knowledge about RAG models:\n\nThe original RAG paper likely uses the **Dense Passage Retriever (DPR)** as its retrieval model.",
+      "accuracy": 0.06626506024096386,
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.5,
+      "keyword_overlap": 0.2,
+      "confidence": null,
+      "latency_ms": 6795.3667640686035,
+      "error": null
+    }
+  ]
+}
