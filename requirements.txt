@@ -1,0 +1,41 @@
+# FastAPI and Server
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+python-multipart==0.0.6
+
+# PDF Processing
+PyMuPDF==1.23.8
+docling>=1.0.0
+docling-core>=1.0.0
+
+# Embeddings and ML
+sentence-transformers==2.3.1
+torch>=2.0.0
+transformers==4.37.0
+
+# Vector Database
+qdrant-client==1.7.3
+
+# Database
+supabase==2.3.0
+postgrest==0.13.2
+
+# LLM Integration
+groq>=0.37.0
+
+# Utilities
+python-dotenv==1.0.0
+pydantic>=2.0.0,<3.0.0
+pydantic-settings>=2.0.0,<3.0.0
+pillow==10.2.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# File handling
+aiofiles==23.2.1
+
+# Logging and monitoring
+loguru==0.7.2
+
+# Testing
+pytest>=7.0.0
